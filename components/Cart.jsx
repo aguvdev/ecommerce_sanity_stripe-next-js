@@ -5,6 +5,7 @@ import {
   AiOutlinePlus,
   AiOutlineLeft,
   AiOutlineShopping,
+  AiOutlineRight,
 } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import { toast } from "react-hot-toast";
@@ -46,7 +47,7 @@ const Cart = () => {
           className="cart-heading"
           onClick={() => setShowCart(false)}
         >
-          <AiOutlineLeft />
+          <AiOutlineRight />
           <span className="heading">Your Cart</span>
           <span className="cart-num-items">({totalQuantities} items)</span>
         </button>
@@ -69,8 +70,8 @@ const Cart = () => {
 
         <div className="product-container">
           {cartItems.length >= 1 &&
-            cartItems.map((item) => (
-              <div className="product" key={item._id}>
+            cartItems.map((item, index) => (
+              <div className="product" key={index}>
                 <img
                   src={urlFor(item?.image[0])}
                   className="cart-product-image"
